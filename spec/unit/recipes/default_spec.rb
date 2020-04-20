@@ -43,7 +43,11 @@ describe 'python_second_It_Jobs_cookbook::default' do
      it 'should install pytest using pip manager' do
        expect(chef_run).to run_execute('install pytest')
      end
-   end
+
+     it 'should create a Downloads folder' do
+      expect(chef_run).to create_directory '/home/ubuntu/Downloads'
+    end
+  end
 
   # context 'When all attributes are default, on CentOS 7' do
   #   # for a complete list of available platforms and versions see:
